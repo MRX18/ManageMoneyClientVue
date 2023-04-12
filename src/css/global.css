@@ -1,0 +1,178 @@
+:root {
+    --blue-hover-100: #485b95;
+    --blue-100: #5166a5;
+    --blue-200: #647cae;
+    --blue-300: #7083b4;
+    --blue-400: #7b8cbc;
+    --blue-500: #9ba6cc;
+    --blue-600: #acb4d4;
+    --blue-700: #c1d6ec;
+
+
+    --white-grey: #dee2e6;
+    --dark-grey: #343a40;
+    --grey-100: #4b545c;
+    --light-grey: #c2c7d0;
+    --light: #f4f6f9;
+}
+
+/* #region backgrounds */
+.bg-shadow-hover {
+    transition: all 0.3s;
+}
+
+.bg-info.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-info) !important;
+}
+
+.bg-warning.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-warning) !important;
+}
+
+.bg-danger.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-danger) !important;
+}
+
+.bg-success.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-success) !important;
+}
+
+.bg-secondary.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-secondary) !important;
+}
+
+.bg-primary {
+    background-color: var(--blue-100) !important;
+}
+.bg-primary.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--blue-100) !important;
+}
+
+.bg-blue {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-primary-rgb),var(--bs-bg-opacity)) !important;
+}
+.bg-blue.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-primary-rgb) !important;
+}
+
+.bg-light {
+    background-color: var(--light) !important;
+}
+.bg-light.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--light) !important;
+}
+
+.bg-teal {
+    background-color: var(--bs-teal) !important;
+}
+.bg-teal.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-teal) !important;
+}
+
+.bg-orange {
+    background-color: var(--bs-orange) !important;
+}
+.bg-orange.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-orange) !important;
+}
+
+.bg-pink {
+    background-color: var(--bs-pink) !important;
+}
+.bg-pink.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-pink) !important;
+}
+
+.bg-purple {
+    background-color: var(--bs-purple) !important;
+}
+.bg-purple.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-purple) !important;
+}
+
+.bg-indigo {
+    background-color: var(--bs-indigo) !important;
+}
+.bg-indigo.bg-shadow-hover:hover {
+    box-shadow: 0px 0px 10px 1px var(--bs-indigo) !important;
+}
+/* #endregion */
+.cursor-pointer:hover {
+    cursor: pointer !important;
+}
+
+.text-light-grey {
+    color: var(--light-grey);
+}
+
+.border-grey-100 {
+    border-color: var(--grey-100) !important;
+}
+.border-blue-500 {
+    border-color: var(--blue-500) !important;
+}
+
+.border-white-grey {
+    border-color: var(--white-grey) !important;
+}
+
+/*-----Bootstrap override-----*/
+/* #region navbar */
+.dropdown-menu[data-bs-popper] {
+    top: 110%;
+    left: auto;
+    right: 0;
+}
+.navbar-nav .nav-link.active {
+    color: var(--blue-100) !important;
+}
+/* #endregion */
+
+/* #region breadcrumbs */
+.breadcrumb-item a {
+    text-decoration: none;
+}
+/* #endregion */
+
+/* #region buttons */
+.btn-primary {
+    --bs-btn-bg: var(--blue-100);
+    --bs-btn-border-color: var(--blue-100);
+    --bs-btn-hover-bg: var(--blue-hover-100);
+    --bs-btn-hover-border-color: var(--blue-hover-100);
+}
+/* #endregion */
+
+/* #region form */
+.form-check-input:checked {
+    background-color: var(--blue-100);
+    border-color: var(--blue-100);
+}
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem var(--blue-700);
+}
+
+.form-control:focus {
+    border-color: var(--blue-500);
+    box-shadow: 0 0 0 0.25rem var(--blue-700);
+}
+/* #endregion */
+
+/* #region tabs */
+.nav-pills {
+    --bs-nav-pills-link-active-bg: var(--blue-100);
+    --bs-link-color: var(--blue-100);
+    --bs-nav-link-hover-color: var(--blue-100);
+}
+.nav-pills .nav-item .nav-link {
+    width: 100%;
+    border-radius: 0rem !important;
+}
+.nav-pills .nav-item:first-child .nav-link {
+    border-radius: var(--bs-nav-pills-border-radius) 0rem 0rem var(--bs-nav-pills-border-radius) !important;
+}
+.nav-pills .nav-item:last-child .nav-link {
+    border-radius: 0rem var(--bs-nav-pills-border-radius) var(--bs-nav-pills-border-radius) 0rem !important;
+}
+/* #endregion */

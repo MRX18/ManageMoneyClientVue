@@ -1,0 +1,108 @@
+.w-sitebar {
+    width: 345px;
+}
+
+.header {
+    height: 50px;
+}
+
+/* #region Sidebar */
+.navbar-c-container {
+    position: sticky;
+}
+.navbar-c {
+    top: 0;
+    list-style: none;
+    padding: 0;    
+}
+.navbar-c a:hover {
+    cursor: pointer;
+}
+.navbar-c > li > a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    font-size: 1.05rem !important;
+    color: var(--light-grey) !important;
+    text-decoration: none;
+    user-select: none;
+}
+.navbar-c > li > a:hover {
+    background-color: var(--dark-grey);
+}
+.navbar-c > li > a > i {
+    font-size: 1.4rem !important;
+}
+.navbar-c .subnavbar-c {
+    background-color: var(--blue-200) !important;
+}
+.navbar-c .subnavbar-c > li > a:hover {
+    background-color: var(--blue-700);
+    color: var(--dark-grey) !important;
+}
+.navbar-c > li > a.accordion-c::after {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23c2c7d0'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transform: rotate(0deg);
+    transition: transform .2s ease-in-out;
+}
+.navbar-c > li > a.accordion-c:not(.collapsed) {
+    background-color: var(--blue-100) !important; 
+}
+.navbar-c > li > a.accordion-c:not(.collapsed)::after {
+    transform: rotate(-180deg);
+}
+/* #endregion */
+
+/* #region Expenses */
+.expense-box {
+    
+}
+.expense-box > .expense-container {
+    position: relative;
+    display: block;
+    height: 120px;
+    border-radius: 0.3rem;
+    color: var(--bs-white);
+    text-decoration: none;
+    padding: 10px;
+}
+.expense-box > .expense-container:hover {
+    cursor: pointer;
+}
+.expense-box .expense-header,
+.expense-box .expense-body {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 5px;
+}
+.expense-box .expense-bottom-icon {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    font-size: 4.5rem;
+    color: var(--bs-black);
+    opacity: 0.5;
+    transition: all 0.3s;
+}
+.expense-box > .expense-container:hover .expense-bottom-icon {
+    transform: scale(1.05);
+}
+.expense-box > .expense-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+.expense-box > .expense-add i {
+    transition: all 0.3s;
+}
+.expense-box > .expense-add:hover i {
+    transform: scale(1.05);
+}
+/* #endregion */
