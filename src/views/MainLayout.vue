@@ -59,25 +59,95 @@
     <!-- Model END -->
     <main class="d-flex w-100">
         <aside class="w-sitebar min-vh-100 position-relative p-0 bg-dark">
-            <div class="header d-flex align-items-center border-bottom border-grey-100 border-1 p-2">
+            <div class="header d-flex align-items-center border-bottom border-gray-dark border-1 p-2">
                 <div>
                     <img class="w-75" src="@/assets/full-logo.png" alt="">
                 </div>
             </div>
-            <ul class="navbar-c-container navbar-c">
-                <li><router-link to="/"><i class="me-2 bi bi-house-door"></i>Home</router-link></li>
-                <li><a class="border-1 border-bottom border-grey-100" data-bs-toggle="modal" data-bs-target="#createEntityModal"><i class="me-2 bi bi-plus-square"></i>Add new</a></li>
+            <ul class="navbar-left" id="navbarAccordion">
                 <li>
-                    <a class="accordion-c collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="me-2 bi bi-briefcase"></i>Briefcase</a>
-                    <ul id="collapseOne" class="collapse navbar-c subnavbar-c">
-                        <li><a class="border-1 border-bottom border-blue-500" data-bs-toggle="modal" data-bs-target="#createEntityModal"><i class="me-2 bi bi-plus-square"></i>Add new</a></li>
-                        <li><a href="#"><i class="me-2 bi bi-briefcase"></i>Sub briefcase</a></li>
-                        <li><a href="#"><i class="me-2 bi bi-briefcase"></i>Sub briefcase</a></li>
-                        <li><a href="#"><i class="me-2 bi bi-briefcase"></i>Sub briefcase</a></li>
+                    <router-link to="/">
+                        <span><i class="me-2 bi bi-house-door"></i>Home</span>
+                    </router-link>
+                </li>
+                <li>
+                    <a class="border-1 border-bottom border-gray-dark" data-bs-toggle="modal" data-bs-target="#createEntityModal">
+                        <span><i class="me-2 bi bi-plus-square"></i>Add new</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="toggle-icon collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <span><i class="me-2 bi bi-briefcase"></i>Briefcase</span>
+                    </a>
+                    <ul id="collapseOne" class="collapse" data-bs-parent="#navbarAccordion">
+                        <li>
+                            <a class="" data-bs-toggle="modal" data-bs-target="#createEntityModal">
+                                <span class="flex-fill"><i class="me-2 bi bi-plus-square"></i>Add new</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span><i class="me-2 bi bi-briefcase"></i>Sub briefcase</span>
+                                <button class="icon" @click.prevent="edit"><i class="bi bi-pencil"></i></button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span><i class="me-2 bi bi-briefcase"></i>Sub briefcase</span>
+                                <button class="icon" @click.prevent="edit"><i class="bi bi-pencil"></i></button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span><i class="me-2 bi bi-briefcase"></i>Sub briefcase</span>
+                                <button class="icon" @click.prevent="edit"><i class="bi bi-pencil"></i></button>
+                            </a>
+                        </li>
                     </ul>
                 </li>
-                <li><router-link to="/"><i class="me-2 bi bi-briefcase"></i>Briefcase</router-link></li>
-                <li><router-link to="/expenses"><i class="me-2 bi bi-cash-coin"></i>Expenses</router-link></li>
+                <li>
+                    <router-link to="/portfolio">
+                        <span><i class="me-2 bi bi-briefcase"></i>Briefcase</span>
+                        <button class="icon" @click.prevent="edit"><i class="bi bi-pencil"></i></button>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/expenses">
+                        <span><i class="me-2 bi bi-cash-coin"></i>Expenses</span>
+                        <button class="icon" @click.prevent="edit"><i class="bi bi-pencil"></i></button>
+                    </router-link>
+                </li>
+                <li>
+                    <a class="toggle-icon collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne">
+                        <span><i class="me-2 bi bi-briefcase"></i>Briefcase</span>
+                    </a>
+                    <ul id="collapseOne1" class="collapse" data-bs-parent="#navbarAccordion">
+                        <li>
+                            <!-- border-1 border-bottom border-blue-500 -->
+                            <a class="" data-bs-toggle="modal" data-bs-target="#createEntityModal">
+                                <span><i class="me-2 bi bi-plus-square"></i>Add new</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span><i class="me-2 bi bi-briefcase"></i>Sub briefcase</span>
+                                <button class="icon" @click.prevent="edit"><i class="bi bi-pencil"></i></button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span><i class="me-2 bi bi-briefcase"></i>Sub briefcase</span>
+                                <button class="icon" @click.prevent="edit"><i class="bi bi-pencil"></i></button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span><i class="me-2 bi bi-briefcase"></i>Sub briefcase</span>
+                                <button class="icon" @click.prevent="edit"><i class="bi bi-pencil"></i></button>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </aside>
         <article class="w-100 p-0 bg-light">
@@ -129,7 +199,11 @@
 
 <script>
 export default {
-
+  methods: {
+    edit () {
+      console.log('edit')
+    }
+  }
 }
 </script>
 

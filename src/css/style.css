@@ -7,40 +7,42 @@
 }
 
 /* #region Sidebar */
-.navbar-c-container {
-    position: sticky;
-}
-.navbar-c {
-    top: 0;
-    list-style: none;
-    padding: 0;    
-}
-.navbar-c a:hover {
-    cursor: pointer;
-}
-.navbar-c > li > a {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-    font-size: 1.05rem !important;
-    color: var(--light-grey) !important;
-    text-decoration: none;
+ul.navbar-left,
+ul.navbar-left ul {
+    margin: 0;
+    padding: 0;
     user-select: none;
 }
-.navbar-c > li > a:hover {
+ul.navbar-left li:has(ul):not(:last-child) ul {
+    border-bottom: 1px solid var(--bs-gray-dark);
+}
+ul.navbar-left .icon {
+    all: unset;
+}
+ul.navbar-left a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-decoration: none;
+    color: var(--light-grey);
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+}
+ul.navbar-left a:hover {
     background-color: var(--dark-grey);
+    cursor: pointer !important;
 }
-.navbar-c > li > a > i {
-    font-size: 1.4rem !important;
+ul.navbar-left a.toggle-icon:not(.collapsed) {
+    background-color: var(--blue-200);
 }
-.navbar-c .subnavbar-c {
-    background-color: var(--blue-200) !important;
+ul.navbar-left a.router-link-exact-active {
+    background-color: var(--blue-100);
 }
-.navbar-c .subnavbar-c > li > a:hover {
-    background-color: var(--blue-700);
-    color: var(--dark-grey) !important;
-}
-.navbar-c > li > a.accordion-c::after {
+/* #endregion */
+
+/* #region Toggle */
+.toggle-icon::after {
     width: 1.25rem;
     height: 1.25rem;
     margin-left: auto;
@@ -48,13 +50,9 @@
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23c2c7d0'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-size: 1.25rem;
-    transform: rotate(0deg);
     transition: transform .2s ease-in-out;
 }
-.navbar-c > li > a.accordion-c:not(.collapsed) {
-    background-color: var(--blue-100) !important; 
-}
-.navbar-c > li > a.accordion-c:not(.collapsed)::after {
+.toggle-icon:not(.collapsed)::after {
     transform: rotate(-180deg);
 }
 /* #endregion */

@@ -106,6 +106,9 @@
     color: var(--light-grey);
 }
 
+.border-gray-dark {
+    border-color: var(--bs-gray-dark) !important;
+}
 .border-grey-100 {
     border-color: var(--grey-100) !important;
 }
