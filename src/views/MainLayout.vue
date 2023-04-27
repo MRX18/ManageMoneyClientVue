@@ -5,23 +5,35 @@
         title="Create portfolio"
         :button="ModalButton.CreateCancel">
         <form action="">
-            <ul class="nav nav-pills border border-1 rounded mb-2" id="pills-tab" role="tablist">
-                <li class="nav-item flex-fill" role="presentation">
-                    <button class="nav-link active" id="grouptab-tab" data-bs-toggle="pill" data-bs-target="#grouptab" type="button" role="tab" aria-controls="grouptab" aria-selected="true">Folder</button>
-                </li>
-                <li class="nav-item flex-fill" role="presentation">
-                    <button class="nav-link" id="portfoliotab-tab" data-bs-toggle="pill" data-bs-target="#portfoliotab" type="button" role="tab" aria-controls="portfoliotab" aria-selected="false">Portfolio</button>
-                </li>
-            </ul>
+            <tabs-component
+                :tabs="[
+                    {
+                        id: 'foldertab',
+                        slot: 'foldertab',
+                        title: 'Folder',
+                        active: true
+                    },
+                    {
+                        id: 'portfoliotab',
+                        slot: 'portfoliotab',
+                        title: 'Portfolio',
+                        active: false
+                    }
+                ]"
+                @tab="switchTab">
+                <template #foldertab>
+                    <div class="mb-2">
+                        <label for="portfolio-name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="folderName">
+                    </div>
+                </template>
 
-            <div class="mb-2">
-                <label for="portfolio-name" class="col-form-label">Name:</label>
-                <input type="text" class="form-control" id="portfolio-name">
-            </div>
+                <template #portfoliotab>
+                    <div class="mb-2">
+                        <label for="portfolio-name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="portfolioName">
+                    </div>
 
-            <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="grouptab" role="tabpanel"></div>
-                <div class="tab-pane fade" id="portfoliotab" role="tabpanel">
                     <label class="col-form-label">Type:</label>
                     <div class="mb-2">
                         <div class="form-check form-check-inline">
@@ -41,8 +53,8 @@
                             <label class="form-check-label" for="inlineRadio4">Deposit</label>
                         </div>
                     </div>
-                </div>
-            </div>
+                </template>
+            </tabs-component>
         </form>
     </modal-component>
     <!-- Model END -->
@@ -187,11 +199,12 @@
 </template>
 
 <script>
+import TabsComponent from '@/components/ui/TabsComponent'
 import ModalComponent from '@/components/ui/modal/ModalComponent'
 import ModalButton from '@/components/ui/modal/ModalButton'
 
 export default {
-  components: { ModalComponent },
+  components: { ModalComponent, TabsComponent },
   data () {
     return {
       ModalButton: ModalButton
@@ -200,6 +213,9 @@ export default {
   methods: {
     edit () {
       console.log('edit')
+    },
+    switchTab (tab) {
+      console.log(tab)
     }
   }
 }
