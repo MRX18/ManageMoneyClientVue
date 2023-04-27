@@ -1,61 +1,50 @@
 <template>
     <!-- Modal -->
-    <div class="modal fade" id="createEntityModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Create portfolio</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <modal-component
+        id="createEntityModal"
+        title="Create portfolio"
+        :button="ModalButton.CreateCancel">
+        <form action="">
+            <ul class="nav nav-pills border border-1 rounded mb-2" id="pills-tab" role="tablist">
+                <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link active" id="grouptab-tab" data-bs-toggle="pill" data-bs-target="#grouptab" type="button" role="tab" aria-controls="grouptab" aria-selected="true">Folder</button>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                    <button class="nav-link" id="portfoliotab-tab" data-bs-toggle="pill" data-bs-target="#portfoliotab" type="button" role="tab" aria-controls="portfoliotab" aria-selected="false">Portfolio</button>
+                </li>
+            </ul>
+
+            <div class="mb-2">
+                <label for="portfolio-name" class="col-form-label">Name:</label>
+                <input type="text" class="form-control" id="portfolio-name">
             </div>
-            <div class="modal-body">
-                <form action="">
-                    <ul class="nav nav-pills border border-1 rounded mb-2" id="pills-tab" role="tablist">
-                        <li class="nav-item flex-fill" role="presentation">
-                            <button class="nav-link active" id="grouptab-tab" data-bs-toggle="pill" data-bs-target="#grouptab" type="button" role="tab" aria-controls="grouptab" aria-selected="true">Folder</button>
-                        </li>
-                        <li class="nav-item flex-fill" role="presentation">
-                            <button class="nav-link" id="portfoliotab-tab" data-bs-toggle="pill" data-bs-target="#portfoliotab" type="button" role="tab" aria-controls="portfoliotab" aria-selected="false">Portfolio</button>
-                        </li>
-                    </ul>
 
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="grouptab" role="tabpanel"></div>
+                <div class="tab-pane fade" id="portfoliotab" role="tabpanel">
+                    <label class="col-form-label">Type:</label>
                     <div class="mb-2">
-                        <label for="portfolio-name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="portfolio-name">
-                    </div>
-
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="grouptab" role="tabpanel"></div>
-                        <div class="tab-pane fade" id="portfoliotab" role="tabpanel">
-                            <label class="col-form-label">Type:</label>
-                            <div class="mb-2">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">Cryptocurrency</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">Stocks</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                                    <label class="form-check-label" for="inlineRadio3">Bonds</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-                                    <label class="form-check-label" for="inlineRadio4">Deposit</label>
-                                </div>
-                            </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Cryptocurrency</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Stocks</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                            <label class="form-check-label" for="inlineRadio3">Bonds</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                            <label class="form-check-label" for="inlineRadio4">Deposit</label>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Create</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-            </div>
-        </div>
-    </div>
+        </form>
+    </modal-component>
     <!-- Model END -->
     <main class="d-flex w-100">
         <aside class="w-sitebar min-vh-100 position-relative p-0 bg-dark">
@@ -198,7 +187,16 @@
 </template>
 
 <script>
+import ModalComponent from '@/components/ui/modal/ModalComponent'
+import ModalButton from '@/components/ui/modal/ModalButton'
+
 export default {
+  components: { ModalComponent },
+  data () {
+    return {
+      ModalButton: ModalButton
+    }
+  },
   methods: {
     edit () {
       console.log('edit')

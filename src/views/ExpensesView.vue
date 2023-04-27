@@ -1,45 +1,34 @@
 <template>
   <!-- Modal -->
-  <div class="modal fade" id="createExpenseCategory" tabindex="-1">
-      <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Create expense category</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form action="">
-                <div class="mb-2">
-                  <label for="name" class="col-form-label">Name:</label>
-                  <input type="text" class="form-control" id="name" placeholder="Name">
-                </div>
-                <div class="mb-2">
-                  <label for="icon" class="col-form-label">Icons:</label>
-                  <select-component id="icon" :is-custom="true" :options="icons" #default="{props}" v-model="selectedIcons">
-                    <div class="d-flex">
-                      <i class="me-2" :class="props.icon"></i>
-                      <span>{{ props.text }}</span>
-                    </div>
-                  </select-component>
-                </div>
-                <div class="mb-2">
-                  <label for="color" class="col-form-label">Colors:</label>
-                  <select-component id="color" :is-custom="true" :options="colors" #default="{props}" v-model="selectedColors">
-                    <div class="d-flex align-items-center">
-                      <div style="width: 20px; height: 20px" class="me-2" :class="'bg-' + props.color"></div>
-                      <span>{{ props.text }}</span>
-                    </div>
-                  </select-component>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Create</button>
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
+  <modal-component
+    id="createExpenseCategory"
+    title="Create expense category"
+    :button="ModalButton.CreateCancel">
+    <form action="">
+      <div class="mb-2">
+        <label for="name" class="col-form-label">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Name">
       </div>
-  </div>
+      <div class="mb-2">
+        <label for="icon" class="col-form-label">Icons:</label>
+        <select-component id="icon" :is-custom="true" :options="icons" #default="{props}" v-model="selectedIcons">
+          <div class="d-flex">
+            <i class="me-2" :class="props.icon"></i>
+            <span>{{ props.text }}</span>
+          </div>
+        </select-component>
+      </div>
+      <div class="mb-2">
+        <label for="color" class="col-form-label">Colors:</label>
+        <select-component id="color" :is-custom="true" :options="colors" #default="{props}" v-model="selectedColors">
+          <div class="d-flex align-items-center">
+            <div style="width: 20px; height: 20px" class="me-2" :class="'bg-' + props.color"></div>
+            <span>{{ props.text }}</span>
+          </div>
+        </select-component>
+      </div>
+    </form>
+  </modal-component>
   <!-- Model END -->
 
   <div class="card mb-2">
@@ -227,10 +216,15 @@
 
 <script>
 import SelectComponent from '@/components/ui/SelectComponent'
+import ModalComponent from '@/components/ui/modal/ModalComponent'
+import ModalButton from '@/components/ui/modal/ModalButton'
+
 export default {
-  components: { SelectComponent },
+  components: { SelectComponent, ModalComponent },
   data () {
     return {
+      ModalButton: ModalButton,
+
       icons: [
         { icon: 'bi bi-cup-hot-fill', text: 'Cup' },
         { icon: 'bi bi-bank', text: 'Bank' },
