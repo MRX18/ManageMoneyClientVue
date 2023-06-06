@@ -1,0 +1,19 @@
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before, 
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
+    background-color: var(--blue-100);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0.2em 0.7em;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, 
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background-color: var(--blue-100);
+    color: var(--bs-white) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:not(.disabled):hover {
+    background: var(--blue-200) !important;
+    border: 1px solid var(--blue-200) !important;
+}

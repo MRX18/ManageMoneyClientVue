@@ -178,37 +178,51 @@
     <div class="card-body">
       <div class="row">
         <div class="col-md-6">
-          <table class="table table-striped table-hover">
+          <DataTable
+            :columns="[
+              { data: 'title' },
+              { data: 'category' },
+              { data: 'sum' },
+              { data: 'date' }
+            ]"
+            :options="{
+              dom: 'Bftip',
+              responsive: true,
+              searching: false
+            }"
+            :data="expenses"
+            class="display nowrap"
+            width="100%"
+          >
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Sum</th>
+                <th>Date</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+          </DataTable>
         </div>
-        <div class="col-md-6">Col 2</div>
+        <div class="col-md-6">
+          <Line style="min-height: 450px;" :data="{
+            labels: ['21.01.2022', '21.02.2022', '21.03.2022', '21.04.2022', '21.05.2022', '21.06.2022', '21.07.2022'],
+            datasets: [
+              {
+                label: 'Category',
+                data: [40, 39, 10, 40, 39, 80, 40],
+                fill: true,
+                borderColor: 'rgb(75, 192, 192)',
+                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                tension: 0.2
+              }
+            ]
+          }"
+          :options="{
+            responsive: true,
+            maintainAspectRatio: false
+          }" />
+        </div>
       </div>
     </div>
   </div>
@@ -219,8 +233,37 @@ import SelectComponent from '@/components/ui/SelectComponent'
 import ModalComponent from '@/components/ui/modal/ModalComponent'
 import ModalButton from '@/components/ui/modal/ModalButton'
 
+import DataTable from 'datatables.net-vue3'
+import DataTablesCore from 'datatables.net'
+import 'datatables.net-responsive'
+
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+} from 'chart.js'
+import { Line } from 'vue-chartjs'
+
+DataTable.use(DataTablesCore)
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+)
+
 export default {
-  components: { SelectComponent, ModalComponent },
+  components: { SelectComponent, ModalComponent, DataTable, Line },
   data () {
     return {
       ModalButton: ModalButton,
@@ -241,7 +284,94 @@ export default {
         { color: 'indigo', text: 'Indigo' },
         { color: 'purple', text: 'Purple' }
       ],
-      selectedColors: []
+      selectedColors: [],
+
+      expenses: [
+        {
+          title: 'Tiger Nixon',
+          category: 'System Architect',
+          sum: '$3,120',
+          date: '2011/04/25'
+        },
+        {
+          title: 'Garrett Winters',
+          category: 'Director',
+          sum: '$5300',
+          date: '2011/07/25'
+        },
+        {
+          title: 'Tiger Nixon',
+          category: 'System Architect',
+          sum: '$3,120',
+          date: '2011/04/25'
+        },
+        {
+          title: 'Garrett Winters',
+          category: 'Director',
+          sum: '$5300',
+          date: '2011/07/25'
+        },
+        {
+          title: 'Tiger Nixon',
+          category: 'System Architect',
+          sum: '$3,120',
+          date: '2011/04/25'
+        },
+        {
+          title: 'Garrett Winters',
+          category: 'Director',
+          sum: '$5300',
+          date: '2011/07/25'
+        },
+        {
+          title: 'Tiger Nixon',
+          category: 'System Architect',
+          sum: '$3,120',
+          date: '2011/04/25'
+        },
+        {
+          title: 'Garrett Winters',
+          category: 'Director',
+          sum: '$5300',
+          date: '2011/07/25'
+        },
+        {
+          title: 'Tiger Nixon',
+          category: 'System Architect',
+          sum: '$3,120',
+          date: '2011/04/25'
+        },
+        {
+          title: 'Garrett Winters',
+          category: 'Director',
+          sum: '$5300',
+          date: '2011/07/25'
+        },
+        {
+          title: 'Tiger Nixon',
+          category: 'System Architect',
+          sum: '$3,120',
+          date: '2011/04/25'
+        },
+        {
+          title: 'Garrett Winters',
+          category: 'Director',
+          sum: '$5300',
+          date: '2011/07/25'
+        },
+        {
+          title: 'Tiger Nixon',
+          category: 'System Architect',
+          sum: '$3,120',
+          date: '2011/04/25'
+        },
+        {
+          title: 'Garrett Winters',
+          category: 'Director',
+          sum: '$5300',
+          date: '2011/07/25'
+        }
+      ]
     }
   },
   methods: {
@@ -250,5 +380,7 @@ export default {
 </script>
 
 <style>
-
+@import 'datatables.net-dt';
+@import 'datatables.net-responsive-dt';
+@import '@/css/data-table.css';
 </style>
